@@ -1,0 +1,287 @@
+@import url('shared-styles.css'); /* Importa variáveis e estilos comuns */
+
+body {
+  background: var(--light-gray);
+  font-family: var(--font-montserrat);
+}
+
+nav {
+  position: fixed;
+  width: 100%;
+  background: var(--main-dark-blue);
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 8px rgba(58, 215, 217, 0.2); /* Usando var */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 32px;
+  height: 88px;
+  transition: background 0.5s;
+}
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  height: 88px;
+  position: relative;
+}
+
+.nav-logo img {
+  width: 180px;
+  height: 180px;
+  object-fit: contain;
+  border-radius: 16px;
+  background: none;
+  border: none;
+  margin-top: 0;
+  margin-bottom: 0;
+  margin-right: 12px;
+  z-index: 2;
+  box-shadow: none;
+  transition: none;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+  gap: 24px;
+}
+
+nav ul li a {
+  color: var(--purple-accent) !important; /* Usando var */
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.18rem;
+  padding: 8px 18px;
+  border-radius: 18px;
+  transition: background 0.35s cubic-bezier(.4,2,.6,1), color 0.35s, box-shadow 0.35s;
+  position: relative;
+  overflow: hidden;
+}
+
+nav ul li a:hover {
+  color: var(--light-blue) !important; /* Usando var */
+  background: linear-gradient(90deg, rgba(196,75,255,0.18) 0%, rgba(58,215,217,0.18) 100%); /* Usando vars em rgba */
+  box-shadow: 0 0 12px rgba(196,75,255,0.34), 0 0 24px rgba(58,215,217,0.34); /* Usando vars em rgba */
+  text-shadow: 0 0 8px rgba(58,215,217,0.8), 0 0 2px rgba(196,75,255,0.8); /* Usando vars em rgba */
+}
+
+.header-flex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+  padding: 120px 20px 60px;
+  background: linear-gradient(120deg, var(--main-dark-blue) 60%, var(--light-blue) 120%); /* Usando vars */
+  color: var(--white);
+  border-bottom-left-radius: 32px;
+  border-bottom-right-radius: 32px;
+  box-shadow: 0 8px 32px rgba(58, 215, 217, 0.2); /* Usando var */
+  position: relative;
+  overflow: hidden;
+  min-height: 340px;
+  transition: background 0.6s;
+}
+
+.header-flex::after {
+  content: '';
+  position: absolute;
+  left: 0; right: 0; bottom: 0; height: 8px;
+  background: linear-gradient(90deg, var(--purple-accent) 0%, var(--light-blue) 100%); /* Usando vars */
+  opacity: 0.18;
+  filter: blur(6px);
+  pointer-events: none;
+}
+
+.header-apresentacao {
+  max-width: 520px;
+  text-align: left;
+  z-index: 1;
+}
+
+.header-apresentacao h1 {
+  color: var(--purple-accent) !important; /* Usando var */
+  -webkit-text-fill-color: var(--purple-accent) !important; /* Usando var */
+  background: none !important;
+  background-clip: unset !important;
+  -webkit-background-clip: unset !important;
+  font-size: 2.6rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  margin-bottom: 10px;
+  filter: drop-shadow(0 2px 8px rgba(58, 215, 217, 0.34)); /* Usando var */
+}
+
+.header-apresentacao p {
+  font-size: 1.25rem;
+  color: #e0e0e0;
+  margin-bottom: 0;
+  text-shadow: 0 2px 8px rgba(0, 17, 64, 0.2); /* Usando var */
+}
+
+/* Blocos principais com destaque elegante */
+.bloco-destaque {
+  background: var(--white);
+  border-radius: 22px;
+  box-shadow: 0 4px 32px rgba(58, 215, 217, 0.06), 0 0 0 2px #e9e0f7; /* Usando var */
+  border: 2px solid #e9e0f7;
+  margin: 48px auto 32px auto;
+  max-width: 950px;
+  padding: 30px 32px;
+  position: relative;
+  overflow: hidden;
+  transition: box-shadow 0.4s, border 0.4s;
+  /* Removido: text-align: center; para que os títulos em Portfólio e Contato não fiquem centralizados */
+}
+
+.bloco-destaque::before {
+  content: '';
+  position: absolute;
+  top: -60px; left: -60px;
+  width: 180px; height: 180px;
+  background: radial-gradient(circle, rgba(196,75,255,0.2) 0%, transparent 80%); /* Usando var */
+  z-index: 0;
+}
+
+.bloco-destaque::after {
+  content: '';
+  position: absolute;
+  bottom: -60px; right: -60px;
+  width: 180px; height: 180px;
+  background: radial-gradient(circle, rgba(58,215,217,0.2) 0%, transparent 80%); /* Usando var */
+  z-index: 0;
+}
+
+.bloco-destaque > * { position: relative; z-index: 1; }
+
+/* Alterações para o título h2 dentro de .bloco-destaque (padronização e remoção de degradê) */
+.bloco-destaque h2 {
+  /* Remove as propriedades de degradê */
+  background: none !important;
+  -webkit-background-clip: unset !important;
+  -webkit-text-fill-color: unset !important;
+  background-clip: unset !important;
+  
+  /* Garante que a cor, borda e padding da section-title sejam aplicados */
+  color: var(--main-dark-blue);
+  border-left: 5px solid var(--light-blue);
+  padding-left: 12px;
+
+  /* Para que o h2 seja um bloco inline e possa ser alinhado */
+  display: inline-block;
+  text-align: left; /* O texto dentro do h2 deve permanecer alinhado à esquerda */
+  font-size: 2rem;
+  margin-bottom: 18px;
+}
+
+/* Centraliza o título da seção "Minha História" especificamente */
+#historia {
+    text-align: center;
+}
+
+
+.bloco-destaque p, .bloco-destaque ul {
+  color: var(--dark-text); /* Usando var */
+  font-size: 1.13rem;
+}
+
+/* Remove caixas de destaque dos cards de portfólio */
+.categoria {
+  background: none !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  margin-bottom: 40px !important;
+}
+
+.categoria h3 a { /* Ajuste para usar section-title */
+  color: var(--main-dark-blue);
+  border-left: 5px solid var(--light-blue);
+  padding-left: 12px;
+  display: inline-block;
+  font-size: 1.5rem;
+  font-weight: 600;
+  text-decoration: none;
+  margin-bottom: 20px;
+}
+
+.projetos {
+  background: none !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.projetos img {
+  max-width: 240px;
+  border-radius: 12px;
+  box-shadow: 0 2px 16px rgba(52, 0, 120, 0.10); /* Usando var */
+  transition: transform 0.3s, box-shadow 0.3s;
+  border: 2px solid var(--white);
+  background: var(--white);
+}
+
+.projetos img:hover {
+  transform: scale(1.08) rotate(-2deg);
+  box-shadow: 0 8px 32px rgba(52, 0, 120, 0.18); /* Usando var */
+  border-color: var(--purple-accent); /* Usando var */
+}
+
+/* adaptações para contatos: coluna alinhada à esquerda */
+.projetos.contatos {
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* cards clicáveis dos contatos, espelhando o estilo dos cards de portfólio */
+.contato-item {
+  display: block;
+  width: 100%;
+  max-width: 300px;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 2px 2px 12px rgba(0,0,0,0.1);
+  background: var(--white);
+  font-weight: 600;
+  text-decoration: none;
+  color: var(--main-dark-blue);
+  transition: transform 0.3s, background 0.3s;
+}
+
+.contato-item + .contato-item {
+  margin-top: 10px;
+}
+
+.contato-item:hover {
+  transform: scale(1.02);
+  background: #f0f0f0;
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  background: var(--main-dark-blue);
+  color: var(--white);
+  margin-top: 20px;
+}
+
+/* Media Queries */
+@media (max-width: 900px) {
+  .bloco-destaque { padding: 32px 10px; }
+}
+@media (max-width: 800px) {
+  .header-flex { flex-direction: column; gap: 24px; padding: 100px 8px 32px 8px; }
+  .header-apresentacao { text-align: center; }
+  nav { padding: 0 10px; }
+  .nav-logo img { width: 64px; height: 64px; }
+}
